@@ -55,7 +55,7 @@
         "fee_collector": "",
         "incentive_factory": ""
     },
-    "terra_classic": {
+    "terra-classic": {
         "pool_factory": "",
         "fee_distributor": "",
         "fee_collector": "",
