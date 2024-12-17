@@ -18,7 +18,12 @@ def load_min_balance():
 def run_script(script_name, chain):
     print(f"Running {script_name} with chain: {chain}")
     result = subprocess.run(['bash', script_name, '-c', chain], capture_output=True, text=True)
-    print(f"{script_name} completed for chain: {chain}")
+    if result.returncode == 0:
+        print(f"{script_name} completed successfully for chain: {chain}")
+        send_slack_notification(f"Success: {script_name} completed successfully for chain: {chain}")
+    else:
+        print(f"{script_name} failed for chain: {chain}. Error: {result.stderr}")
+        send_slack_notification(f"Error: {script_name} failed for chain: {chain}. Error: {result.stderr}")
     return result.stdout.strip()
 
 def send_slack_notification(message):
