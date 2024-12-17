@@ -1,0 +1,64 @@
+{
+    "migaloo": {
+        "pool_factory": "migaloo1z89funaazn4ka8vrmmw4q27csdykz63hep4ay8q2dmlspc6wtdgq92u369",
+        "vault_factory": "migaloo1g2xwx805epc897rwyrykskjque07yxfmc4qq2p4ef5dwd6znl30qkgw8w7",
+        "fee_distributor": "migaloo13e3ywqudfz92pq2sxwuwf35rdtp3hvz7xu0danyk38dchevywraswfgnqx",
+        "fee_collector": "migaloo14dcwvg4zplrc28g5q3802n2mmnp3fsp2yh7mn7gkxssnrjqp4ycq76wy6h",
+        "incentive_factory": "migaloo1rqfr752hn6auzm3vzzyr2pd8rt6fapf208vm8qfpejstt69uxfwqcdrdq3"
+    },
+    "terra": {
+        "pool_factory": "terra1f4cr4sr5eulp3f2us8unu6qv8a5rhjltqsg7ujjx6f2mrlqh923sljwhn3",
+        "vault_factory": "terra1vcn8h6fc26nv4f20p6g870a00nqzdpjwvshud9ku3qfaqhv7l69s9l29y2",
+        "fee_distributor": "terra1xm0yh8cv8rww6g87h3q0megt6ntxqzw6p6hgh5l4jrhed4fe7hnq9cvzm5",
+        "fee_collector": "terra1w8402njz8936ag4rlcmvek4zcns6hlkaapsd4qwz5us0ewwyghrsx7k47w",
+        "incentive_factory": "terra1qsfcuketm4slntdp92kg3ltnn57j7dzq3wg3yqjr8xhsnae6fn3sjmle9y"
+    },
+    "osmosis": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "chihuahua": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "archway": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "juno": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "injective": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "stargaze": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "sei": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    },
+    "terra_classic": {
+        "pool_factory": "",
+        "fee_distributor": "",
+        "fee_collector": "",
+        "incentive_factory": ""
+    }
+}
