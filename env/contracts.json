@@ -14,51 +14,45 @@
         "incentive_factory": "terra1qsfcuketm4slntdp92kg3ltnn57j7dzq3wg3yqjr8xhsnae6fn3sjmle9y"
     },
     "osmosis": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "osmo1vuzkc4nzzav7g6t20f2vp0ed4sm3vaqnkpzy7yq3kujxs2g2hawqwnwy5w",
+        "vault_factory": "osmo1c2zsgzl2cjua4e7f0yxkfy48n7ezhspv7htahdrhsxuqhgy97sas4lscwq",
+        "fee_distributor": "osmo1ec7fqky6cq9xds6hq0e46f25ldnkkvjjkml7644y8la59ucqmtfsyyhh75",
+        "fee_collector": "osmo1q95ewh2ymqnj8n5rt80myr4yf7srqd0kqmjqrdxf9a2etl5gnavq5hehr3",
+        "incentive_factory": "osmo1qw870ecwrxh62kgn3alur65juhesu22x63x9s6ss8wukdxpfuvaqr4jncv"
     },
     "chihuahua": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
-    },
-    "archway": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "chihuahua1s8ehad3r9wxyk08ls2nmz8mqh4vlfmaxd2nw0crxwh04t4l5je4s8ljv0j",
+        "vault_factory": "chihuahua1mlhardte7nznkkupn64vw58nt48fa5r5frluxt7y5gkrkws39scqagvdm7",
+        "fee_distributor": "chihuahua15umr63cfrav8qk572x57rzjfcyqtfnret6rpfasju9ayeqmxrhjq5k0y8c",
+        "fee_collector": "chihuahua1z6fjtpsa9fhnkuxvef5lkcaafuw40zc3hr0wml0tngqahtl0s58sxdkwrm",
+        "incentive_factory": "chihuahua1wzde4vn8p8deskata2vy7z4cfvfzll0syjg8x659suhxnwqy7a8s6fhl4w"
     },
     "juno": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "juno14m9rd2trjytvxvu4ldmqvru50ffxsafs8kequmfky7jh97uyqrxqs5xrnx",
+        "vault_factory": "juno1qnfsrwx4c0qnvcnscwm7r55nxr8rpfckq6v8yvuvg7zuqj0uk2hsrssj2n",
+        "fee_distributor": "juno184ghwgprva7dlr2hwhzgvt6mem6zx78fygk0cpw7klssmzyf67tqdtwt3h",
+        "fee_collector": "juno1dk7uekpslkla89cdh83tgjejhara7c4aasdnc9a2hq9d0652pqmsdr4ldy",
+        "incentive_factory": "juno1gg3y2f3kn337qhxwsumpd7wt4avl7knadp7vne4278whw0n3qf5quksw06"
     },
     "injective": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
-    },
-    "stargaze": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "inj1x22q8lfhz7qcvtzs0dakhgx2th64l79kfye5lk",
+        "vault_factory": "inj1wastjc07zuuy46mzzl3egz4uzy6fs59758vrwr",
+        "fee_distributor": "inj1s0q949jwm6n502sspvjmnaj4zjuv36fzpl33rr",
+        "fee_collector": "inj1g6kht9c5s4jwn4akfjt3zmsfh4nvguewuevmk0",
+        "incentive_factory": "inj189rhgt2d78a7djv0x6mulwy7kre07n9x3z72nd"
     },
     "sei": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "sei1tcx434euh2aszzfsjxqzvjmc4cww54rxvfvv8v7jz353rg779l2st699q0",
+        "vault_factory": "sei1xmklc5umaeu52mas5rp7x9u8k7wdw9eqnh64v67ku7vd87cy9gash82279",
+        "fee_distributor": "sei10n6x0a9cmvmkar088j7fa46xq5ykx5mfl86jmxgjjew8rt0ceeqqrzc5w9",
+        "fee_collector": "sei1kgq4e2469nhdghnyn7xgrzppsxhth772z4dvxrcl60q2gksls8uqy6vl5t",
+        "incentive_factory": "sei18gc92uh8xnkzysxm2rj0262vdpp66j695qce5kyd66mkppmr4u2s5jd0pa"
     },
     "terra-classic": {
-        "pool_factory": "",
-        "fee_distributor": "",
-        "fee_collector": "",
-        "incentive_factory": ""
+        "pool_factory": "terra1wyqd3gk7pdknt5xtapdgzlr658a9tn3jryn0rzxwnvv6f0jhlcesl758m0",
+        "vault_factory": "terra1ay6nmzavhylwr4nwvsxjhl0we2ahdfn66m5z7jczc62rl499tddq8mr2hm",
+        "fee_distributor": "terra1d2p6vqyynhn2eraf74qtedaugfuknt32wnsm8e4uskfqv2jersdqkstzer",
+        "fee_collector": "terra1mlw8qmxjxwru5ctp4hkxhsxtzzxr0pkvsytkqwg32axfyhnxca2qv8gxgx",
+        "incentive_factory": "terra1zuyalae3t5qg4gkumff0mj5he6auv73n467jknj4p6pr00wqmnjqdxv6cx"
     }
 }

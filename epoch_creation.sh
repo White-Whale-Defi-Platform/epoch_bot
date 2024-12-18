@@ -5,6 +5,21 @@ project_root_path=$(realpath "$0" | sed 's|\(.*\)/.*|\1|' | cd ../ | pwd)
 #todo display_usage
 
 function create_epoch() {
+    local query='{"current_epoch":{}}'
+    local start_time=($($BINARY query wasm contract-state smart $fee_distributor "$query" --output json --node $RPC | jq -r '.data.epoch.start_time'))
+
+    # get unix time in nanos
+    local current_time=$(($(date +%s)000000000))
+
+    # check if it's over a day between the start_time and current time 
+    local diff=$((current_time - start_time))
+    local diff_days=$((diff / 86400000000000))
+
+    if [ $diff_days -lt 1 ]; then
+        echo "Epochs are up to date"
+        exit 0
+    fi
+
     MSG='{"new_epoch":{}}'
 
     echo "Creating new epoch..."

@@ -12,8 +12,8 @@ function import_bot_wallet() {
 		exit 1
 	fi
 
-	bot_wallet='bot_wallet'
-	local mnemonic=$(cat "$project_root_path"/scripts/deployment/deploy_env/mnemonics/bot_mnemonic.txt)
+	bot_wallet='epoch_bot'
+	local mnemonic=$(cat "$project_root_path"/env/deploy_env/mnemonics/bot_mnemonic.txt)
 
 	# verify if the bot_wallet wallet has already been imported
 	if ! $BINARY keys show $bot_wallet >/dev/null 2>&1; then
