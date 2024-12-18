@@ -16,16 +16,24 @@ function take_incentive_snapshots() {
 
 	incentive_counter=0
 
+	local query='{"current_epoch":{}}'
+    local current_epoch_id=($($BINARY query wasm contract-state smart $fee_distributor "$query" --output json --node $RPC | jq -r '.data.epoch.id'))
+
 	for incentive in "${res[@]}"
 	do
-		echo "Taking snapshot for incentive $incentive..."
+		local query='{"global_weight":{"epoch_id": '$current_epoch_id'}}'
+		local epoch_id=($($BINARY query wasm contract-state smart $incentive "$query" --output json --node $RPC | jq -r '.data.epoch_id'))
 
-		#take snapshot
-		MSG='{"take_global_weight_snapshot":{}}'
+		# if epoch_id is empty, the query errored, which means the snapshot was not taken for the current epoch
+		if [ -z "$epoch_id" ]; then
+			echo "Taking snapshot for incentive $incentive..."
 
-	  	local res=$($BINARY tx wasm execute $incentive "$MSG" $TXFLAG --from $bot_address)
-    	echo $res
-		sleep $tx_delay
+			MSG='{"take_global_weight_snapshot":{}}'
+	  		local res=$($BINARY tx wasm execute $incentive "$MSG" $TXFLAG --from $bot_address)
+    		sleep $tx_delay
+		else
+			echo "Snapshot already taken for incentive $incentive"
+		fi
 
 		incentive_counter=$((incentive_counter+1))
 
@@ -56,6 +64,7 @@ while getopts $optstring arg; do
 
         # Load contracts
         incentive_factory=$(jq -r --arg chain "$chain" '.[$chain].incentive_factory' $contracts_file)
+        fee_distributor=$(jq -r --arg chain "$chain" '.[$chain].fee_distributor' $contracts_file)
 
         # create epoch
         take_incentive_snapshots
