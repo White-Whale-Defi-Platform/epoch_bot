@@ -5,7 +5,7 @@ project_root_path=$(realpath "$0" | sed 's|\(.*\)/.*|\1|' | cd ../ | pwd)
 #todo display_usage
 
 function check_balance() {
-	local balance=($($BINARY q bank balances $incentive_factory $bot_address --output json --node $RPC | jq -r --arg denom "$DENOM" '.data.balances[] | select(.denom == "$denom").amount'))
+	local balance=($($BINARY q bank balances $bot_address --output json --node $RPC | jq -r --arg denom "$DENOM" '.data.balances[] | select(.denom == "$denom").amount'))
 	echo balance
 }
 
