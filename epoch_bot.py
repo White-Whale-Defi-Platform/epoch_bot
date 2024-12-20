@@ -5,10 +5,12 @@ import subprocess
 import json
 from slack_dispatcher import send_slack_notification
 
-# Load the chains.json file
+# Load the chains.json file and extract chain names
 def load_chains():
     with open('env/contracts.json') as f:
-        return json.load(f)
+        chains_data = json.load(f)
+    chain_names = list(chains_data.keys())
+    return chain_names
 
 # Load the min_balance.json file
 def load_min_balance():
@@ -26,47 +28,43 @@ def run_script(script_name, chain):
         send_slack_notification(f"Error: {script_name} failed for chain: {chain}. Error: {result.stderr}")
     return result.stdout.strip()
 
-def check_balance(chain_name, chain_data, min_balance):
-    chain_json = json.dumps(chain_data)
-    balance = run_script('check_bot_balance.sh', chain_json)
-    print(f"Balance for {chain_name}: {balance}")
+def check_balance(chain, min_balance):
+    balance = run_script('check_bot_balance.sh', chain)
+    print(f"Balance for {chain}: {balance}")
 
-    if chain_name in min_balance:
-        min_balance_value = min_balance[chain_name]
+    if chain in min_balance:
+        min_balance_value = min_balance[chain]
         if int(balance) < min_balance_value:
-            message = f"Alert: Balance for {chain_name} is below minimum ({balance} < {min_balance_value})"
+            message = f"Alert: Balance for {chain} is below minimum ({balance} < {min_balance_value})"
             send_slack_notification(message)
         else:
-            print(f"Balance for {chain_name} is sufficient ({balance} >= {min_balance_value})")
+            print(f"Balance for {chain} is sufficient ({balance} >= {min_balance_value})")
     else:
-        print(f"No minimum balance specified for {chain_name}")
+        print(f"No minimum balance specified for {chain}")
 
 def run_fee_aggregation(chains, min_balance):
-    for chain_name, chain_data in chains.items():
-        chain_json = json.dumps(chain_data)
-        output = run_script('fee_aggregation.sh', chain_json)
+    for chain in chains:
+        output = run_script('fee_aggregation.sh', chain)
         print(f"Output from fee_aggregation.sh: {output}")
 
         # Check balance after fee aggregation for each chain
-        check_balance(chain_name, chain_data, min_balance)
+        check_balance(chain, min_balance)
 
 def run_epoch_creation(chains, min_balance):
-    for chain_name, chain_data in chains.items():
-        chain_json = json.dumps(chain_data)
-        output = run_script('epoch_creation.sh', chain_json)
+    for chain in chains:
+        output = run_script('epoch_creation.sh', chain)
         print(f"Output from epoch_creation.sh: {output}")
 
         # Check balance after epoch creation for each chain
-        check_balance(chain_name, chain_data, min_balance)
+        check_balance(chain, min_balance)
 
 def run_incentives_snapshot(chains, min_balance):
-    for chain_name, chain_data in chains.items():
-        chain_json = json.dumps(chain_data)
-        output = run_script('incentives_snapshot.sh', chain_json)
+    for chain in chains:
+        output = run_script('incentives_snapshot.sh', chain)
         print(f"Output from incentives_snapshot.sh: {output}")
 
         # Check balance after incentives snapshot for each chain
-        check_balance(chain_name, chain_data, min_balance)
+        check_balance(chain, min_balance)
 
 def run_random_fee_aggregation(chains, min_balance):
     current_hour = time.localtime().tm_hour
@@ -100,6 +98,8 @@ def heartbeat():
 
 def main():
     chains = load_chains()
+    print(f"Loaded chain names: {chains}")
+    
     min_balance = load_min_balance()
     # Schedule epoch_creation.sh and incentives_snapshot.sh to run at 17:00 UTC
     schedule.every().day.at("17:00").do(run_epoch_creation, chains, min_balance)

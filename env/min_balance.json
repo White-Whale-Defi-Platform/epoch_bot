@@ -1,12 +1,12 @@
 {
-    "migaloo": 10000,
-    "terra": 10000,
-    "osmosis": 10000,
-    "chihuahua": 10000,
-    "archway": 1000,
-    "juno": 1000,
-    "injective": 1000,
-    "stargaze": 1000,
-    "sei": 1000,
-    "terra-classic": 1000
+    "migaloo": 50000000,
+    "terra": 5000000,
+    "osmosis": 2500000,
+    "chihuahua": 12000000000,
+    "archway": 1000000000000000000,
+    "juno": 1500000,
+    "injective": 9000000000000000,
+    "stargaze": 1000000,
+    "sei": 80000,
+    "terra-classic": 450000000
 }
