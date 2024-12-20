@@ -29,7 +29,7 @@ function take_incentive_snapshots() {
 			echo "Taking snapshot for incentive $incentive..."
 
 			MSG='{"take_global_weight_snapshot":{}}'
-	  		local res=$($BINARY tx wasm execute $incentive "$MSG" $TXFLAG --from $bot_address)
+	  		local res=$(echo $DAEMON_PASSWORD | $BINARY tx wasm execute $incentive "$MSG" $TXFLAG --from $bot_address)
     		sleep $tx_delay
 		else
 			echo "Snapshot already taken for incentive $incentive"

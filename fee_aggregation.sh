@@ -21,7 +21,7 @@ function collect_fees() {
 
     echo "Collecting fees..."
 
-    local res=$($BINARY tx wasm execute $fee_collector "$MSG" $TXFLAG --from $bot_address)
+    local res=$(echo $DAEMON_PASSWORD | $BINARY tx wasm execute $fee_collector "$MSG" $TXFLAG --from $bot_address)
     echo $res
 
     sleep $tx_delay
@@ -43,7 +43,7 @@ function aggregate_fees() {
 
     echo "Aggregating fees..."
 
-    local res=$($BINARY tx wasm execute $fee_collector "$MSG" $TXFLAG --from $bot_address)
+    local res=$(echo $DAEMON_PASSWORD | $BINARY tx wasm execute $fee_collector "$MSG" $TXFLAG --from $bot_address)
     echo $res
     
     sleep $tx_delay

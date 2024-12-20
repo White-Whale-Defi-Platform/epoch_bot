@@ -24,7 +24,7 @@ function create_epoch() {
 
     echo "Creating new epoch..."
 
-    local res=$($BINARY tx wasm execute $fee_distributor "$MSG" $TXFLAG --from $bot_address)
+    local res=$(echo $DAEMON_PASSWORD | $BINARY tx wasm execute $fee_distributor "$MSG" $TXFLAG --from $bot_address)
     echo $res
 
     sleep $tx_delay
